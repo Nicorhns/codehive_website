@@ -1,0 +1,24 @@
+html {
+  background: url(../images/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#social_media_container {
+  padding-top: 25px;
+  text-align: center;
+}
+
+.social_media_button {
+  padding-left: 9;
+  padding-right: 9;
+}
+
+.center-div {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
