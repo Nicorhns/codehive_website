@@ -1,13 +1,12 @@
 html {
-  background: url(../images/background.jpg) no-repeat center center fixed;
+  background: #FAAD37 url(../images/background.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-#social_media_container {
-  padding-top: 36px;
+.horizontal_container {
   text-align: center;
 }
 
@@ -21,4 +20,8 @@ html {
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
+}
+
+#social_media_container {
+  padding-top: 36px;
 }
