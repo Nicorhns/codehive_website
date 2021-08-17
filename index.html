@@ -4,6 +4,16 @@
     <title>codehive</title>
     <link rel="stylesheet" href="./resources/styles/styles.css"/>
     <!-- <meta http-equiv="refresh" content="5; URL=https://gtu-www.belfius.be/banx/nl/iws/generic/launcher.html?appkey=REWARDS_PARAMS"/> -->
+    <script>
+        function hrefRedirect() {
+            window.location.replace("https://gtu-www.belfius.be/banx/nl/iws/generic/launcher.html?appkey=REWARDS_PARAMS");
+        }
+    </script>
+    <script>
+        function locationRedirect() {
+            window.location.href = "https://gtu-www.belfius.be/banx/nl/iws/generic/launcher.html?appkey=REWARDS_PARAMS";
+        }
+    </script>
 </head>
 <body>
     <div class="center-div">
@@ -16,8 +26,8 @@
             <a href="https://www.facebook.com/codehivebe" target="_blank"><img src="./resources/images/bttn-facebook.svg" class="social_media_button"/></a>
             <a href="https://www.linkedin.com/in/nicolasrahoens/" target="_blank"><img src="./resources/images/bttn-linkedin.svg" class="social_media_button"/></a>
             <a href="https://gtu-www.belfius.be/banx/nl/iws/generic/launcher.html?appkey=REWARDS_PARAMS" target="_blank"><img src="./resources/images/bttn-twitter.svg" class="social_media_button"/></a>
-            <a href="#" onclick="function hi(){window.location.replace(https://gtu-www.belfius.be/banx/nl/iws/generic/launcher.html?appkey=REWARDS_PARAMS;);};hi()">JS location redirect</a>
-            <a href="#" onclick="function hi(){window.location.href=&quot;https://gtu-www.belfius.be/banx/nl/iws/generic/launcher.html?appkey=REWARDS_PARAMS&quot;;};hi()">JS href redirect</a>
+            <a href="#" onclick="locationRedirect()">JS location redirect</a>
+            <a href="#" onclick="hrefRedirect()">JS href redirect</a>
         </div>
     </div>
 </body>
