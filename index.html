@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
   <title>CodeHive — Freelance iOS Engineer</title>
   <link rel="icon" href="https://www.codehive.be/resources/images/cropped-Logo_transparent_square-2-192x192.png" sizes="192x192">
   <link rel="icon" href="https://www.codehive.be/resources/images/cropped-Logo_transparent_square-2-32x32.png" sizes="32x32">
@@ -17,17 +18,28 @@
     (function() {
       var saved = localStorage.getItem('theme');
       var root = document.documentElement;
-      var themeColorMeta = document.querySelector('meta[name="theme-color"]');
+      var metas = document.querySelectorAll('meta[name="theme-color"]');
+
+      function setThemeColor(color) {
+        metas.forEach(function(m) {
+          m.removeAttribute('media');
+          m.setAttribute('content', color);
+        });
+      }
+
+      function restoreMediaThemeColor() {
+        metas[0].setAttribute('media', '(prefers-color-scheme: light)');
+        metas[0].setAttribute('content', '#fafafa');
+        metas[1].setAttribute('media', '(prefers-color-scheme: dark)');
+        metas[1].setAttribute('content', '#0a0a0a');
+      }
 
       if (saved && saved !== 'auto') {
-        // Explicit theme choice
         root.setAttribute('data-theme', saved);
-        themeColorMeta.setAttribute('content', saved === 'light' ? '#fafafa' : '#0a0a0a');
+        setThemeColor(saved === 'light' ? '#fafafa' : '#0a0a0a');
       } else {
-        // Auto mode or no preference - follow system
         root.removeAttribute('data-theme');
-        var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-        themeColorMeta.setAttribute('content', isLight ? '#fafafa' : '#0a0a0a');
+        restoreMediaThemeColor();
       }
     })();
   </script>
@@ -194,7 +206,21 @@
     (function() {
       var toggle = document.getElementById('themeToggle');
       var root = document.documentElement;
-      var themeColorMeta = document.querySelector('meta[name="theme-color"]');
+      var metas = document.querySelectorAll('meta[name="theme-color"]');
+
+      function setThemeColor(color) {
+        metas.forEach(function(m) {
+          m.removeAttribute('media');
+          m.setAttribute('content', color);
+        });
+      }
+
+      function restoreMediaThemeColor() {
+        metas[0].setAttribute('media', '(prefers-color-scheme: light)');
+        metas[0].setAttribute('content', '#fafafa');
+        metas[1].setAttribute('media', '(prefers-color-scheme: dark)');
+        metas[1].setAttribute('content', '#0a0a0a');
+      }
 
       function getSystemTheme() {
         return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
@@ -208,14 +234,11 @@
 
       function applyTheme(mode) {
         if (mode === 'auto') {
-          // Follow system preference
           root.removeAttribute('data-theme');
-          var systemTheme = getSystemTheme();
-          themeColorMeta.setAttribute('content', systemTheme === 'light' ? '#fafafa' : '#0a0a0a');
+          restoreMediaThemeColor();
         } else {
-          // Explicit theme
           root.setAttribute('data-theme', mode);
-          themeColorMeta.setAttribute('content', mode === 'light' ? '#fafafa' : '#0a0a0a');
+          setThemeColor(mode === 'light' ? '#fafafa' : '#0a0a0a');
         }
       }
 
