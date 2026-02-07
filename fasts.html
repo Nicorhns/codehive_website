@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="viewport" content="viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
@@ -246,11 +245,18 @@
     }
 
     @media (max-width: 640px) {
-      .app-hero { padding: 7rem 1.25rem 3rem; }
+      .app-hero { padding: 7rem 1.25rem 3rem; min-height: auto; }
+      .app-hero h1 { font-size: clamp(2rem, 5vw, 3rem); }
+      .app-hero .tagline { font-size: 1.1rem; }
       .app-icon { width: 96px; height: 96px; border-radius: 22px; }
-      .privacy-block { padding: 2rem 1.5rem; }
-      .highlight-section { padding: 2rem 1.5rem; }
+      .privacy-block { padding: 2rem 1.25rem; }
+      .privacy-block h2 { font-size: 1.4rem; }
+      .highlight-section { padding: 2rem 1.25rem; }
+      .highlight-section h2 { font-size: 1.4rem; }
       .privacy-points { gap: 1rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .feature-card { padding: 1.5rem; }
+      .cta-section h2 { font-size: 1.4rem; }
     }
   </style>
 
@@ -291,7 +297,7 @@
   <nav>
     <a href="./index.html"><img src="./resources/images/logo.svg" alt="codehive" class="logo"></a>
     <div class="nav-right">
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="#features">Features</a></li>
         <li><a href="#privacy">Privacy</a></li>
         <li><a href="#download">Download</a></li>
@@ -496,6 +502,7 @@
     document.querySelectorAll('.fade-in').forEach(function(el) {
       observer.observe(el);
     });
+
   </script>
 
 </body>
