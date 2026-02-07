@@ -75,14 +75,13 @@
         <li><a href="#work">Work</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <!-- Theme toggle button hidden – auto switching remains active
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme (dark/light/auto)">
-        <!-- Moon icon (shown in dark mode) -->
         <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-        <!-- Sun icon (shown in light mode) -->
         <svg class="icon-sun" viewBox="0 0 24 24"><path d="M12 18a6 6 0 100-12 6 6 0 000 12zM12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/></svg>
-        <!-- Auto icon (shown in auto mode) -->
         <svg class="icon-auto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2 A10 10 0 0 1 12 22 Z" fill="currentColor"/></svg>
       </button>
+      -->
     </div>
   </nav>
 
@@ -269,18 +268,10 @@
   </footer>
 
   <script>
-    // --- Theme toggle (three states: dark → light → auto) ---
+    // --- Theme: auto mode only (follows system preference) ---
     (function() {
-      var toggle = document.getElementById('themeToggle');
       var root = document.documentElement;
       var metas = document.querySelectorAll('meta[name="theme-color"]');
-
-      function setThemeColor(color) {
-        metas.forEach(function(m) {
-          m.removeAttribute('media');
-          m.setAttribute('content', color);
-        });
-      }
 
       function restoreMediaThemeColor() {
         metas[0].setAttribute('media', '(prefers-color-scheme: light)');
@@ -289,49 +280,17 @@
         metas[1].setAttribute('content', '#0a0a0a');
       }
 
-      function getSystemTheme() {
-        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-      }
+      // Clear any previously saved manual theme preference
+      localStorage.removeItem('theme');
+      root.removeAttribute('data-theme');
+      restoreMediaThemeColor();
 
-      function getCurrentMode() {
-        var saved = localStorage.getItem('theme');
-        if (!saved || saved === 'auto') return 'auto';
-        return saved;
-      }
-
-      function applyTheme(mode) {
-        if (mode === 'auto') {
-          root.removeAttribute('data-theme');
-          restoreMediaThemeColor();
-        } else {
-          root.setAttribute('data-theme', mode);
-          setThemeColor(mode === 'light' ? '#fafafa' : '#0a0a0a');
-        }
-      }
-
-      // Cycle through: dark → light → auto → dark...
-      toggle.addEventListener('click', function() {
-        var current = getCurrentMode();
-        var next;
-
-        if (current === 'dark') next = 'light';
-        else if (current === 'light') next = 'auto';
-        else next = 'dark';
-
-        localStorage.setItem('theme', next);
-        applyTheme(next);
-      });
-
-      // Listen for system theme changes when in auto mode
+      // Listen for system theme changes
       var systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)');
       systemPrefersLight.addListener(function() {
-        if (getCurrentMode() === 'auto') {
-          applyTheme('auto');
-        }
+        root.removeAttribute('data-theme');
+        restoreMediaThemeColor();
       });
-
-      // Apply initial theme
-      applyTheme(getCurrentMode());
     })();
 
     // --- Scroll fade-in ---
