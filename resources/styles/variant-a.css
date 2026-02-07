@@ -591,6 +591,8 @@ footer {
   nav .nav-right { gap: 1rem; }
   nav .nav-links { gap: 1rem; }
   nav .nav-links a { font-size: 0.8rem; }
+  nav .nav-links li { display: none; }
+  nav .nav-links li:last-child { display: list-item; }
 
   .hero { padding: 7rem 1.25rem 3rem; min-height: auto; }
   .hero p { font-size: 1.05rem; }
