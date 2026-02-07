@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0a0a0a">
   <title>Nicolas Rahoens — Freelance iOS Developer</title>
   <link rel="icon" href="https://www.codehive.be/resources/images/cropped-Logo_transparent_square-2-192x192.png" sizes="192x192">
   <link rel="icon" href="https://www.codehive.be/resources/images/cropped-Logo_transparent_square-2-32x32.png" sizes="32x32">
@@ -17,6 +18,9 @@
       var saved = localStorage.getItem('theme');
       if (saved) {
         document.documentElement.setAttribute('data-theme', saved);
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', saved === 'light' ? '#fafafa' : '#0a0a0a');
+      } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fafafa');
       }
     })();
   </script>
@@ -202,6 +206,7 @@
         var next = currentTheme() === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', next === 'light' ? '#fafafa' : '#0a0a0a');
       });
     })();
 
