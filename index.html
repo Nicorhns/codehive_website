@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0a0a0a">
   <title>CodeHive — Freelance iOS Engineer</title>
   <link rel="icon" href="https://www.codehive.be/resources/images/cropped-Logo_transparent_square-2-192x192.png" sizes="192x192">
   <link rel="icon" href="https://www.codehive.be/resources/images/cropped-Logo_transparent_square-2-32x32.png" sizes="32x32">
@@ -15,11 +16,18 @@
   <script>
     (function() {
       var saved = localStorage.getItem('theme');
-      if (saved) {
-        document.documentElement.setAttribute('data-theme', saved);
-        document.querySelector('meta[name="theme-color"]').setAttribute('content', saved === 'light' ? '#fafafa' : '#0a0a0a');
-      } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fafafa');
+      var root = document.documentElement;
+      var themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
+      if (saved && saved !== 'auto') {
+        // Explicit theme choice
+        root.setAttribute('data-theme', saved);
+        themeColorMeta.setAttribute('content', saved === 'light' ? '#fafafa' : '#0a0a0a');
+      } else {
+        // Auto mode or no preference - follow system
+        root.removeAttribute('data-theme');
+        var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        themeColorMeta.setAttribute('content', isLight ? '#fafafa' : '#0a0a0a');
       }
     })();
   </script>
@@ -35,11 +43,13 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme (dark/light/auto)">
         <!-- Moon icon (shown in dark mode) -->
         <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
         <!-- Sun icon (shown in light mode) -->
         <svg class="icon-sun" viewBox="0 0 24 24"><path d="M12 18a6 6 0 100-12 6 6 0 000 12zM12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/></svg>
+        <!-- Auto icon (shown in auto mode) -->
+        <svg class="icon-auto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2 A10 10 0 0 1 12 22 Z" fill="currentColor"/></svg>
       </button>
     </div>
   </nav>
@@ -180,25 +190,58 @@
   </footer>
 
   <script>
-    // --- Theme toggle ---
+    // --- Theme toggle (three states: dark → light → auto) ---
     (function() {
       var toggle = document.getElementById('themeToggle');
       var root = document.documentElement;
+      var themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
-      function currentTheme() {
-        // Explicit choice takes priority
-        var saved = root.getAttribute('data-theme');
-        if (saved) return saved;
-        // Otherwise follow system
+      function getSystemTheme() {
         return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
       }
 
+      function getCurrentMode() {
+        var saved = localStorage.getItem('theme');
+        if (!saved || saved === 'auto') return 'auto';
+        return saved;
+      }
+
+      function applyTheme(mode) {
+        if (mode === 'auto') {
+          // Follow system preference
+          root.removeAttribute('data-theme');
+          var systemTheme = getSystemTheme();
+          themeColorMeta.setAttribute('content', systemTheme === 'light' ? '#fafafa' : '#0a0a0a');
+        } else {
+          // Explicit theme
+          root.setAttribute('data-theme', mode);
+          themeColorMeta.setAttribute('content', mode === 'light' ? '#fafafa' : '#0a0a0a');
+        }
+      }
+
+      // Cycle through: dark → light → auto → dark...
       toggle.addEventListener('click', function() {
-        var next = currentTheme() === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
+        var current = getCurrentMode();
+        var next;
+
+        if (current === 'dark') next = 'light';
+        else if (current === 'light') next = 'auto';
+        else next = 'dark';
+
         localStorage.setItem('theme', next);
-        document.querySelector('meta[name="theme-color"]').setAttribute('content', next === 'light' ? '#fafafa' : '#0a0a0a');
+        applyTheme(next);
       });
+
+      // Listen for system theme changes when in auto mode
+      var systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)');
+      systemPrefersLight.addListener(function() {
+        if (getCurrentMode() === 'auto') {
+          applyTheme('auto');
+        }
+      });
+
+      // Apply initial theme
+      applyTheme(getCurrentMode());
     })();
 
     // --- Scroll fade-in ---

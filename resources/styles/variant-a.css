@@ -187,16 +187,19 @@ nav .nav-links a:hover { color: var(--accent); }
   fill: currentColor;
 }
 
+/* Three-state icon display: dark/light/auto */
 .theme-toggle .icon-sun  { display: none; }
-.theme-toggle .icon-moon { display: block; }
+.theme-toggle .icon-moon { display: none; }
+.theme-toggle .icon-auto { display: none; }
 
-[data-theme="light"] .theme-toggle .icon-sun  { display: block; }
-[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+/* Dark mode - show moon */
+[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) .theme-toggle .icon-sun  { display: block; }
-  :root:not([data-theme="dark"]) .theme-toggle .icon-moon { display: none; }
-}
+/* Light mode - show sun */
+[data-theme="light"] .theme-toggle .icon-sun { display: block; }
+
+/* Auto mode (no data-theme attribute) - show auto icon */
+:root:not([data-theme]) .theme-toggle .icon-auto { display: block; }
 
 /* ===== HERO ===== */
 
