@@ -417,6 +417,83 @@ section { padding: 6rem 2rem; }
 
 .tech-tag:hover { color: var(--accent); }
 
+/* ===== WORK / APP CARDS ===== */
+
+.app-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s;
+}
+
+.app-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.app-card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+.app-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.app-card-info h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.app-card-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-dim);
+  padding: 0.2rem 0.5rem;
+  border-radius: 100px;
+}
+
+.app-card-info p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.app-card-arrow {
+  width: 20px;
+  height: 20px;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  transition: color 0.25s;
+}
+
+.app-card:hover .app-card-arrow {
+  color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .app-card { gap: 1rem; padding: 1.25rem; }
+  .app-card-icon { width: 52px; height: 52px; border-radius: 12px; }
+  .app-card-arrow { display: none; }
+}
+
 /* ===== CONTACT ===== */
 
 .contact-block {
