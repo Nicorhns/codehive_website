@@ -20,7 +20,7 @@
   --text-dim: #525252;
   --border: #262626;
   --nav-bg: rgba(10, 10, 10, 0.85);
-  --logo-filter: none;
+  --logo-filter: brightness(0) invert(1);
 }
 
 /* Light mode — explicit toggle */
@@ -449,7 +449,7 @@ section { padding: 6rem 2rem; }
 
 .app-card-icon--contain {
   object-fit: contain;
-  background: var(--bg-card-hover);
+  background: #ffffff;
   padding: 10px;
 }
 

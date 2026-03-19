@@ -69,11 +69,11 @@
     <img src="./resources/images/logo.svg" alt="codehive" class="logo">
     <div class="nav-right">
       <ul class="nav-links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#consulting">Consulting</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about" data-content="index.nav.about"></a></li>
+        <li><a href="#services" data-content="index.nav.services"></a></li>
+        <li><a href="#consulting" data-content="index.nav.consulting"></a></li>
+        <li><a href="#work" data-content="index.nav.work"></a></li>
+        <li><a href="#contact" data-content="index.nav.contact"></a></li>
       </ul>
       <!-- Theme toggle button hidden – auto switching remains active
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme (dark/light/auto)">
@@ -89,12 +89,12 @@
 
   <!-- HERO -->
   <header class="hero">
-    <span class="label">Available for freelance work</span>
-    <h1>I craft <span class="highlight">iOS apps</span> that people love to use.</h1>
-    <p>Freelance iOS developer with over a decade of experience building polished, high-performance mobile applications for startups and established brands alike.</p>
+    <span class="label" data-content="index.hero.label"></span>
+    <h1 data-content-html="index.hero.h1"></h1>
+    <p data-content="index.hero.p"></p>
     <div class="cta-row">
-      <a href="mailto:info@codehive.be" class="btn btn-primary">Get in touch</a>
-      <a href="#about" class="btn btn-outline">Learn more</a>
+      <a href="mailto:info@codehive.be" class="btn btn-primary" data-content="index.hero.ctaPrimary"></a>
+      <a href="#about" class="btn btn-outline" data-content="index.hero.ctaOutline"></a>
     </div>
   </header>
 
@@ -104,16 +104,16 @@
   <section class="fade-in">
     <div class="stats-grid">
       <div class="stat-card">
-        <div class="stat-number">10+</div>
-        <div class="stat-label">Years of Experience</div>
+        <div class="stat-number" data-content="index.stats.yearsNumber"></div>
+        <div class="stat-label" data-content="index.stats.yearsLabel"></div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">Swift</div>
-        <div class="stat-label">Language of Choice</div>
+        <div class="stat-number" data-content="index.stats.langNumber"></div>
+        <div class="stat-label" data-content="index.stats.langLabel"></div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">5&#9733;</div>
-        <div class="stat-label">Client Satisfaction</div>
+        <div class="stat-number" data-content="index.stats.ratingNumber"></div>
+        <div class="stat-label" data-content="index.stats.ratingLabel"></div>
       </div>
     </div>
   </section>
@@ -122,45 +122,41 @@
 
   <!-- ABOUT -->
   <section id="about" class="fade-in">
-    <div class="section-label">About</div>
-    <h2 class="section-title">Turning ideas into native iOS experiences.</h2>
-    <p class="about-text">
-      I'm <strong>Nicolas</strong>, a freelance iOS developer based in Belgium, working under the name <strong>CodeHive</strong>. For the past decade I've been designing and developing native iOS applications — from early-stage prototypes to full App Store releases.
-    </p>
+    <div class="section-label" data-content="index.about.label"></div>
+    <h2 class="section-title" data-content="index.about.title"></h2>
+    <p class="about-text" data-content-html="index.about.p1"></p>
     <br>
-    <p class="about-text">
-      I focus on writing <strong>clean, maintainable Swift code</strong> and building interfaces that feel intuitive and responsive. Whether it's a consumer-facing product, an enterprise tool, or a creative side-project, I bring the same level of craft and attention to detail.
-    </p>
+    <p class="about-text" data-content-html="index.about.p2"></p>
   </section>
 
   <hr class="divider">
 
   <!-- SERVICES -->
   <section id="services" class="fade-in">
-    <div class="section-label">Services</div>
-    <h2 class="section-title">What I can do for you</h2>
-    <p class="section-desc">End-to-end iOS development, from concept through App Store submission and beyond.</p>
+    <div class="section-label" data-content="index.services.label"></div>
+    <h2 class="section-title" data-content="index.services.title"></h2>
+    <p class="section-desc" data-content="index.services.desc"></p>
 
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon">&#128241;</div>
-        <h3>iOS App Development</h3>
-        <p>Native Swift applications built with UIKit and SwiftUI, following Apple's Human Interface Guidelines.</p>
+        <h3 data-content="index.services.card1Title"></h3>
+        <p data-content="index.services.card1Desc"></p>
       </div>
       <div class="service-card">
         <div class="service-icon">&#9881;&#65039;</div>
-        <h3>Architecture & Code Review</h3>
-        <p>Audit existing codebases, improve architecture, and establish best practices for your mobile team.</p>
+        <h3 data-content="index.services.card2Title"></h3>
+        <p data-content="index.services.card2Desc"></p>
       </div>
       <div class="service-card">
         <div class="service-icon">&#128640;</div>
-        <h3>App Store Optimization</h3>
-        <p>From beta testing with TestFlight to production deployment, including performance profiling and crash monitoring.</p>
+        <h3 data-content="index.services.card3Title"></h3>
+        <p data-content="index.services.card3Desc"></p>
       </div>
       <div class="service-card">
         <div class="service-icon">&#129309;</div>
-        <h3>Team Augmentation</h3>
-        <p>Seamlessly integrate with your existing development team on a contract basis to accelerate delivery.</p>
+        <h3 data-content="index.services.card4Title"></h3>
+        <p data-content="index.services.card4Desc"></p>
       </div>
     </div>
   </section>
@@ -169,27 +165,27 @@
 
   <!-- TECH -->
   <section class="fade-in">
-    <div class="section-label">Tech Stack</div>
-    <h2 class="section-title">Technologies I work with</h2>
-    <p class="section-desc">A decade of iOS means deep expertise across the Apple ecosystem.</p>
+    <div class="section-label" data-content="index.tech.label"></div>
+    <h2 class="section-title" data-content="index.tech.title"></h2>
+    <p class="section-desc" data-content="index.tech.desc"></p>
 
     <div class="tech-grid">
-      <span class="tech-tag">Swift</span>
-      <span class="tech-tag">SwiftUI</span>
-      <span class="tech-tag">UIKit</span>
-      <span class="tech-tag">Combine</span>
-      <span class="tech-tag">Core Data</span>
-      <span class="tech-tag">CloudKit</span>
-      <span class="tech-tag">Xcode</span>
-      <span class="tech-tag">TestFlight</span>
-      <span class="tech-tag">CI/CD</span>
-      <span class="tech-tag">REST APIs</span>
-      <span class="tech-tag">GraphQL</span>
-      <span class="tech-tag">Git</span>
-      <span class="tech-tag">Firebase</span>
-      <span class="tech-tag">CocoaPods</span>
-      <span class="tech-tag">SPM</span>
-      <span class="tech-tag">Objective-C</span>
+      <span class="tech-tag" data-content="index.tech.tags.swift"></span>
+      <span class="tech-tag" data-content="index.tech.tags.swiftui"></span>
+      <span class="tech-tag" data-content="index.tech.tags.uikit"></span>
+      <span class="tech-tag" data-content="index.tech.tags.combine"></span>
+      <span class="tech-tag" data-content="index.tech.tags.coredata"></span>
+      <span class="tech-tag" data-content="index.tech.tags.cloudkit"></span>
+      <span class="tech-tag" data-content="index.tech.tags.xcode"></span>
+      <span class="tech-tag" data-content="index.tech.tags.testflight"></span>
+      <span class="tech-tag" data-content="index.tech.tags.cicd"></span>
+      <span class="tech-tag" data-content="index.tech.tags.rest"></span>
+      <span class="tech-tag" data-content="index.tech.tags.graphql"></span>
+      <span class="tech-tag" data-content="index.tech.tags.git"></span>
+      <span class="tech-tag" data-content="index.tech.tags.firebase"></span>
+      <span class="tech-tag" data-content="index.tech.tags.cocoapods"></span>
+      <span class="tech-tag" data-content="index.tech.tags.spm"></span>
+      <span class="tech-tag" data-content="index.tech.tags.objc"></span>
     </div>
   </section>
 
@@ -197,23 +193,23 @@
 
   <!-- CONSULTING -->
   <section id="consulting" class="fade-in">
-    <div class="section-label">Consulting</div>
-    <h2 class="section-title">Teams I've worked with</h2>
-    <p class="section-desc">Embedded with product teams to ship features, improve architecture, and accelerate delivery.</p>
+    <div class="section-label" data-content="index.consulting.label"></div>
+    <h2 class="section-title" data-content="index.consulting.title"></h2>
+    <p class="section-desc" data-content="index.consulting.desc"></p>
 
     <div class="app-card">
       <img src="./resources/images/belfius-icon.png" alt="Belfius Mobile app icon" class="app-card-icon">
       <div class="app-card-info">
-        <h3>Belfius Mobile <span class="app-card-badge">Banking</span></h3>
-        <p>Contributed to one of Belgium's most-used banking apps, working on native iOS features within a large-scale agile team.</p>
+        <h3 data-content-html="index.consulting.belfiusTitle"></h3>
+        <p data-content="index.consulting.belfiusDesc"></p>
       </div>
     </div>
 
     <div class="app-card" style="margin-top: 1rem;">
       <img src="./resources/images/icapps-logo.png" alt="iCapps logo" class="app-card-icon app-card-icon--contain">
       <div class="app-card-info">
-        <h3>iCapps <span class="app-card-badge">Agency</span></h3>
-        <p>Worked as a consulting iOS developer at one of Belgium's leading app agencies, delivering native apps for a variety of clients across industries.</p>
+        <h3 data-content-html="index.consulting.icappsTitle"></h3>
+        <p data-content="index.consulting.icappsDesc"></p>
       </div>
     </div>
   </section>
@@ -222,15 +218,15 @@
 
   <!-- WORK -->
   <section id="work" class="fade-in">
-    <div class="section-label">Work</div>
-    <h2 class="section-title">Apps I've built</h2>
-    <p class="section-desc">Side projects where I get to experiment with ideas and ship something of my own.</p>
+    <div class="section-label" data-content="index.work.label"></div>
+    <h2 class="section-title" data-content="index.work.title"></h2>
+    <p class="section-desc" data-content="index.work.desc"></p>
 
     <a href="./fasts.html" class="app-card">
       <img src="./resources/images/fast-icon.png" alt="Fast app icon" class="app-card-icon">
       <div class="app-card-info">
-        <h3>Fast <span class="app-card-badge">App Store</span></h3>
-        <p>A beautifully simple intermittent fasting tracker. No account required, no data collected. iPhone, iPad, Apple Watch, and Mac.</p>
+        <h3 data-content-html="index.work.fastTitle"></h3>
+        <p data-content="index.work.fastDesc"></p>
       </div>
       <svg class="app-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
     </a>
@@ -241,20 +237,20 @@
   <!-- CONTACT -->
   <section id="contact" class="fade-in">
     <div class="contact-block">
-      <h2>Let's build something great.</h2>
-      <p>Have a project in mind or need an experienced iOS developer? I'd love to hear about it.</p>
+      <h2 data-content="index.contact.title"></h2>
+      <p data-content="index.contact.desc"></p>
       <div class="social-row">
         <a href="mailto:info@codehive.be" class="social-link">
           <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          Email
+          <span data-content="index.contact.email"></span>
         </a>
         <a href="https://www.linkedin.com/in/nicolasrahoens/" class="social-link" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-          LinkedIn
+          <span data-content="index.contact.linkedin"></span>
         </a>
         <a href="https://twitter.com/codehive_be" class="social-link" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 01-1.93.07 4.28 4.28 0 004 2.98 8.521 8.521 0 01-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
-          Twitter
+          <span data-content="index.contact.twitter"></span>
         </a>
       </div>
     </div>
@@ -263,9 +259,10 @@
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    &copy; 2026 CodeHive &middot; Belgium
-  </footer>
+  <footer data-content="index.footer"></footer>
+
+  <script src="./resources/content.js"></script>
+  <script src="./resources/content-loader.js"></script>
 
   <script>
     // --- Theme: auto mode only (follows system preference) ---

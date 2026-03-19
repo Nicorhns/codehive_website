@@ -316,15 +316,10 @@
     <a href="./index.html"><img src="./resources/images/logo.svg" alt="codehive" class="logo"></a>
     <div class="nav-right">
       <ul class="nav-links" id="navLinks">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#privacy">Privacy</a></li>
-        <li><a href="#download">Download</a></li>
+        <li><a href="#features" data-content="fasts.nav.features"></a></li>
+        <li><a href="#privacy" data-content="fasts.nav.privacy"></a></li>
+        <li><a href="#download" data-content="fasts.nav.download"></a></li>
       </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme (dark/light/auto)">
-        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-        <svg class="icon-sun" viewBox="0 0 24 24"><path d="M12 18a6 6 0 100-12 6 6 0 000 12zM12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/></svg>
-        <svg class="icon-auto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2 A10 10 0 0 1 12 22 Z" fill="currentColor"/></svg>
-      </button>
     </div>
   </nav>
 
@@ -333,17 +328,17 @@
   <!-- HERO -->
   <div class="app-hero">
     <img src="./resources/images/fast-icon.png" alt="Fast app icon" class="app-icon">
-    <span class="label">Intermittent Fasting</span>
-    <h1>Fast<span class="highlight">.</span></h1>
-    <p class="tagline">Beautifully simple fasting, designed for the way you actually live.</p>
+    <span class="label" data-content="fasts.hero.label"></span>
+    <h1 data-content-html="fasts.hero.h1"></h1>
+    <p class="tagline" data-content="fasts.hero.tagline"></p>
     <a href="https://apps.apple.com/be/app/fast-intermittent-fasting/id6741595659" class="app-store-badge" target="_blank" rel="noopener">
       <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
     </a>
     <div class="platform-tags">
-      <span class="platform-tag">iPhone</span>
-      <span class="platform-tag">iPad</span>
-      <span class="platform-tag">Apple Watch</span>
-      <span class="platform-tag">Mac</span>
+      <span class="platform-tag" data-content="fasts.hero.platformIphone"></span>
+      <span class="platform-tag" data-content="fasts.hero.platformIpad"></span>
+      <span class="platform-tag" data-content="fasts.hero.platformWatch"></span>
+      <span class="platform-tag" data-content="fasts.hero.platformMac"></span>
     </div>
   </div>
 
@@ -351,40 +346,40 @@
 
   <!-- FEATURES -->
   <section id="features" class="fade-in">
-    <div class="section-label">Features</div>
-    <h2 class="section-title">Everything you need, nothing you don't.</h2>
-    <p class="section-desc">Start and stop fasts with a single tap. No clutter, no complexity.</p>
+    <div class="section-label" data-content="fasts.features.label"></div>
+    <h2 class="section-title" data-content="fasts.features.title"></h2>
+    <p class="section-desc" data-content="fasts.features.desc"></p>
 
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">&#9201;</div>
-        <h3>One-Tap Tracking</h3>
-        <p>Start and stop your fasts instantly. The interface gets out of your way so you can focus on your routine.</p>
+        <h3 data-content="fasts.features.card1Title"></h3>
+        <p data-content="fasts.features.card1Desc"></p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">&#9524;</div>
-        <h3>Apple Watch</h3>
-        <p>Track fasts directly from your wrist. The Watch app works independently — no phone required.</p>
+        <h3 data-content="fasts.features.card2Title"></h3>
+        <p data-content="fasts.features.card2Desc"></p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">&#9638;</div>
-        <h3>Widgets</h3>
-        <p>Glanceable widgets for iPhone and Apple Watch. See your fasting status without opening the app.</p>
+        <h3 data-content="fasts.features.card3Title"></h3>
+        <p data-content="fasts.features.card3Desc"></p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">&#127922;</div>
-        <h3>Intermittent Living</h3>
-        <p>Intelligent randomized schedules that prevent metabolic adaptation. Choose Light, Medium, or High variation.</p>
+        <h3 data-content="fasts.features.card4Title"></h3>
+        <p data-content="fasts.features.card4Desc"></p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">&#128170;</div>
-        <h3>Fully Customizable</h3>
-        <p>Adjust fasting duration, start times, and weekly frequency. Set protected meal times for family dinners or brunches.</p>
+        <h3 data-content="fasts.features.card5Title"></h3>
+        <p data-content="fasts.features.card5Desc"></p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">&#9729;</div>
-        <h3>iCloud Sync</h3>
-        <p>Your data syncs seamlessly across all your devices via iCloud. No account creation needed.</p>
+        <h3 data-content="fasts.features.card6Title"></h3>
+        <p data-content="fasts.features.card6Desc"></p>
       </div>
     </div>
   </section>
@@ -394,13 +389,13 @@
   <!-- INTERMITTENT LIVING -->
   <section class="fade-in">
     <div class="highlight-section">
-      <div class="section-label">New</div>
-      <h2>Intermittent Living</h2>
-      <p>Your body is smart — it adapts. Intermittent Living introduces intelligent randomization to your fasting schedule, keeping your metabolism guessing and preventing plateaus.</p>
+      <div class="section-label" data-content="fasts.intermittentLiving.label"></div>
+      <h2 data-content="fasts.intermittentLiving.title"></h2>
+      <p data-content="fasts.intermittentLiving.desc"></p>
       <div class="variation-levels">
-        <span class="variation-level">Light variation</span>
-        <span class="variation-level">Medium variation</span>
-        <span class="variation-level">High variation</span>
+        <span class="variation-level" data-content="fasts.intermittentLiving.levelLight"></span>
+        <span class="variation-level" data-content="fasts.intermittentLiving.levelMedium"></span>
+        <span class="variation-level" data-content="fasts.intermittentLiving.levelHigh"></span>
       </div>
     </div>
   </section>
@@ -410,20 +405,20 @@
   <!-- PRIVACY -->
   <section id="privacy" class="fade-in">
     <div class="privacy-block">
-      <h2>Your data stays yours.</h2>
-      <p>Fast collects zero data. No accounts, no tracking, no analytics. Everything lives on your device and in your personal iCloud.</p>
+      <h2 data-content="fasts.privacy.title"></h2>
+      <p data-content="fasts.privacy.desc"></p>
       <div class="privacy-points">
         <div class="privacy-point">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-          No account required
+          <span data-content="fasts.privacy.point1"></span>
         </div>
         <div class="privacy-point">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-          No data collected
+          <span data-content="fasts.privacy.point2"></span>
         </div>
         <div class="privacy-point">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-          iCloud only
+          <span data-content="fasts.privacy.point3"></span>
         </div>
       </div>
     </div>
@@ -434,8 +429,8 @@
   <!-- DOWNLOAD CTA -->
   <section id="download" class="fade-in">
     <div class="cta-section">
-      <h2>Start fasting smarter.</h2>
-      <p>Available on iPhone, iPad, Apple Watch, and Mac for just &euro;0.99. No subscriptions, no in-app purchases.</p>
+      <h2 data-content="fasts.cta.title"></h2>
+      <p data-content="fasts.cta.desc"></p>
       <a href="https://apps.apple.com/be/app/fast-intermittent-fasting/id6741595659" class="app-store-badge" target="_blank" rel="noopener">
         <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
       </a>
@@ -445,23 +440,16 @@
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    &copy; 2026 <a href="./index.html" class="app-footer-link">CodeHive</a> &middot; Belgium
-  </footer>
+  <footer data-content-html="fasts.footer"></footer>
+
+  <script src="./resources/content.js"></script>
+  <script src="./resources/content-loader.js"></script>
 
   <script>
-    // --- Theme toggle (three states: dark -> light -> auto) ---
+    // --- Theme: auto mode only (follows system preference) ---
     (function() {
-      var toggle = document.getElementById('themeToggle');
       var root = document.documentElement;
       var metas = document.querySelectorAll('meta[name="theme-color"]');
-
-      function setThemeColor(color) {
-        metas.forEach(function(m) {
-          m.removeAttribute('media');
-          m.setAttribute('content', color);
-        });
-      }
 
       function restoreMediaThemeColor() {
         metas[0].setAttribute('media', '(prefers-color-scheme: light)');
@@ -470,46 +458,15 @@
         metas[1].setAttribute('content', '#0a0a0a');
       }
 
-      function getSystemTheme() {
-        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-      }
-
-      function getCurrentMode() {
-        var saved = localStorage.getItem('theme');
-        if (!saved || saved === 'auto') return 'auto';
-        return saved;
-      }
-
-      function applyTheme(mode) {
-        if (mode === 'auto') {
-          root.removeAttribute('data-theme');
-          restoreMediaThemeColor();
-        } else {
-          root.setAttribute('data-theme', mode);
-          setThemeColor(mode === 'light' ? '#fafafa' : '#0a0a0a');
-        }
-      }
-
-      toggle.addEventListener('click', function() {
-        var current = getCurrentMode();
-        var next;
-
-        if (current === 'dark') next = 'light';
-        else if (current === 'light') next = 'auto';
-        else next = 'dark';
-
-        localStorage.setItem('theme', next);
-        applyTheme(next);
-      });
+      localStorage.removeItem('theme');
+      root.removeAttribute('data-theme');
+      restoreMediaThemeColor();
 
       var systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)');
       systemPrefersLight.addListener(function() {
-        if (getCurrentMode() === 'auto') {
-          applyTheme('auto');
-        }
+        root.removeAttribute('data-theme');
+        restoreMediaThemeColor();
       });
-
-      applyTheme(getCurrentMode());
     })();
 
     // --- Scroll fade-in ---
